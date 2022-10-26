@@ -1,0 +1,26 @@
+<div class="container mt-3">
+    <h4 class="mt-4">Liste des providers</h4>
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Adress</th>
+                <th>Suppression</th>
+                <th>Modification</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let provider of providers">
+                <td>{{provider.id}}</td>
+                <td>{{provider.name}}</td>
+                <td>{{provider.address}}</td>
+                <td>{{provider.email}}</td>
+                <td><button (click)="deleteProvider(provider)" class="btn btn-danger">Supprimer</button></td>
+                <td><button (click)="updateProvider(provider)" class="btn btn-warning">Modifier</button></td>
+            
+            </tr>
+        </tbody>
+    </table>
+</div>
