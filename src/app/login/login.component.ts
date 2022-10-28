@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   checkLogin() {
     if (this.loginservice.authenticate(this.username, this.password)) {//==true
-      this.router.navigate([''])
+      this.router.navigate(['/listProvider'])
     } else
       this.invalidLogin = true
   }
