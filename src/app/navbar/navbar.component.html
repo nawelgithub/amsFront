@@ -1,18 +1,23 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Providers</a>
-        </li>
-       <li class="nav-item">
-          <a class="nav-link" routerLink="/listProvider" routerLinkActive="active">Liste</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/addProvider" routerLinkActive="active">Ajouter</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Providers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/listProvider" *ngIf="loginService.isUserLoggedIn()" routerLinkActive="active">Liste</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/addProvider" *ngIf="loginService.isUserLoggedIn()" routerLinkActive="active">Ajouter</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" routerLink="/login" *ngIf="!loginService.isUserLoggedIn()" routerLinkActive="active">Login</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" routerLink="/logout" *ngIf="loginService.isUserLoggedIn()" routerLinkActive="active">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 <router-outlet></router-outlet>
