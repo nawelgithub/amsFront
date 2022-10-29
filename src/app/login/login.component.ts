@@ -22,11 +22,21 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /* checkLogin() {
+     if (this.loginservice.authenticate(this.username, this.password)) {//==true
+       this.router.navigate(['/listProvider'])
+     } else
+       this.invalidLogin = true
+   }*/
+
   checkLogin() {
-    if (this.loginservice.authenticate(this.username, this.password)) {//==true
-      this.router.navigate(['/listProvider'])
-    } else
-      this.invalidLogin = true
+    this.loginservice.authenticate(this.username, this.password).subscribe(
+      data => {
+        this.router.navigate(['/listProvider']);
+        this.invalidLogin = false;
+      },
+      error => { this.invalidLogin = true }
+    )
   }
 
 }
